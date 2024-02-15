@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "./App";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { BrowserRouter } from "react-router-dom";
+
+import { Provider } from 'react-redux';
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}> {/* envuelvo toda la aplicacion en el provider asi puedo usar el store en todos lados */}
+     <PersistGate persistor={persistor}> {/* y tambien la envuelvo en el con el persistGate para poder usar el local storage */}
+    
+    <BrowserRouter> {/* la app debe estar envuelta por BrowserRouter asi se puede acceder a todos los links */}
+      <App />
+    </BrowserRouter>
+    </PersistGate>
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
