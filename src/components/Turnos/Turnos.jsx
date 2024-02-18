@@ -41,7 +41,7 @@ const Turnos = () => {
         <CardTurno key={i} {...turno} />
       ))}
       */}
-      {turnos.map((turno, i) => (
+      {turnos?.map((turno, i) => (
         <CardTurno key={i} {...turno} />
       ))}
      

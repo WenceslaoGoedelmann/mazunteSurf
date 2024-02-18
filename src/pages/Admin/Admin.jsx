@@ -98,7 +98,7 @@ console.log(tipo)
       >
         turnos
       </button>
-      {adminTurnos.map((turno, i) => (
+      {adminTurnos?.map((turno, i) => (
         <AdminCardTurno key={i} {...turno} />
       ))}
 
