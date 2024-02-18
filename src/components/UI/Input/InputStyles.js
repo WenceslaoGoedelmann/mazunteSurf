@@ -2,34 +2,29 @@ import styled from 'styled-components';
 
 export const InputBoxStyled = styled.div`
   display: flex;
-  margin: 1rem 0;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 50%;
 `;
 
 export const InputLabelStyled = styled.label`
   display: flex;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 50%;
+  //width: 50%;
   color: black;
   font-weight: 600;
 `;
 
 export const InputStyled = styled.input`
-  background-color: beige;
-  outline: none;
-  border: ${({ isError }) => (isError ? '1px solid #fb103d ' : '1px solid black')};
-  border-radius: 8px;
-  height: 30px;
-  padding: 0.5rem 1rem;
+  width: 300px;
+  padding: 1rem 1rem;
   color: white;
-  width: 70%;
-  margin-top: 1rem;
+  background-color: white;
+  border-radius: 15px;
+  border: ${({ isError }) => (isError ? '1px solid #fb103d ' : 'none')};
+  outline: none;
+  caret-color: white;
 
   ::placeholder {
     opacity: 60%;

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   turnos: null,
+  adminTurnos:null,
   loading: false,
   error: null,
 };
@@ -24,6 +25,14 @@ const turnoSlice = createSlice({
         loading: false,
         error: null,
         turnos: [...action.payload],
+      };
+    },
+    fetchAdminTurnoSuccess: (state, action) => {
+      return {
+        ...state,
+       
+        
+        adminTurnos: [...action.payload],
       };
     },
     fetchTurnoFail: (state, action) => {
@@ -60,7 +69,8 @@ export const {
     fetchTurnoFail,
     fetchTurnoStart,
     clearError,
-    clearTurnos
+    clearTurnos,
+    fetchAdminTurnoSuccess
 } = turnoSlice.actions;
 
 export default turnoSlice.reducer;

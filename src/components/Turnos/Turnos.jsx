@@ -11,11 +11,9 @@ const Turnos = () => {
   const { turnos } = useSelector((state) => state.turnos);
   const [orden, setOrden] = useState("menor");
 
-  let turnoOrdenado = [...turnos]
+  //let turnoOrdenado = [...turnos]
 
-
-
-  const turnosOrdenadosHora = turnoOrdenado.sort(
+/*   const turnosOrdenadosHora = turnoOrdenado.sort(
     (a, b) => parseInt(a.hour) - parseInt(b.hour)
   );
 
@@ -29,17 +27,21 @@ const Turnos = () => {
       (a, b) => new Date(b.date) - new Date(a.date)
     );
     
-  }
+  } */
 
   return (
     <ContainerStyled>
-      <select
+      {/* <select
         onChange={(e) => setOrden(e.target.value)}
       >
         <option value="menor">Menor a Mayor</option>
         <option value="mayor">Mayor a Menor</option>
-      </select>
+      </select> 
       {turnoOrdenado.map((turno, i) => (
+        <CardTurno key={i} {...turno} />
+      ))}
+      */}
+      {turnos.map((turno, i) => (
         <CardTurno key={i} {...turno} />
       ))}
      

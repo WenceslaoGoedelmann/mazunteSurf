@@ -7,6 +7,7 @@ import Register from '../pages/Register/Register';
 import Verify from '../pages/Verify/Verify';
 import Turno from '../pages/CrearTurno/Turno';
 import User from '../pages/UserProfile/User';
+import Admin from '../pages/Admin/Admin';
 
 
 
@@ -21,6 +22,7 @@ const Routes = () => {
       <Route path='/verify' element={<Verify />} />
       <Route path='/turno' element={<Turno />} />
       <Route path='/user' element={<User />} />
+      <Route path='/admin' element={<Admin />} />
     </ReactDomRoutes>
   )
 }

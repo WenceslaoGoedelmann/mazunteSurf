@@ -2,7 +2,7 @@ import React from "react";
 import {
   Form,
   LoginContainerStyled,
-  LoginEmailStyled,
+
   LoginPasswordStyled,
 } from "./LoginStyles";
 import { Formik } from "formik";
@@ -16,10 +16,11 @@ import Loader from "../../components/UI/Loader/Loader";
 
 import { setCurrentUser } from '../../redux/user/userSlice';
 import { loginUser } from "../../components/axios/axios.user";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   return (
     <LoginContainerStyled>
       <h1>Iniciar Sesión</h1>
@@ -29,13 +30,13 @@ const Login = () => {
         onSubmit={async (values) => {
           const user = await loginUser(values.email, values.password);
           if (user) {
-            
             dispatch(
               setCurrentUser({
                 ...user.usuario,
                 token: user.token,
               })
             );
+            navigate("/")
           }
         }}
       >
@@ -52,17 +53,18 @@ const Login = () => {
             >
               Contraseña
             </Input>
+            <Submit type="button">
+              {isSubmitting ? <Loader /> : "Ingresar"}
+            </Submit>
             <Link to="/forgot-password">
               <LoginPasswordStyled>
                 ¿Olvidaste la contraseña? Reestablecela
               </LoginPasswordStyled>
             </Link>
             <Link to="/register">
-              <LoginEmailStyled>¿No tenes cuenta? Crea una</LoginEmailStyled>
+              <LoginPasswordStyled>¿No tenes cuenta? Crea una</LoginPasswordStyled>
             </Link>
-            <Submit type="button">
-              {isSubmitting ? <Loader /> : "Ingresar"}
-            </Submit>
+            
           </Form>
         )}
       </Formik>

@@ -8,7 +8,11 @@ export const LoginContainerStyled = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  background-image: url("https://res.cloudinary.com/dtsltqjuw/image/upload/v1707095596/MazunteSurf/beach-5043177_1280_nzdvvd.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 `;
 
@@ -24,7 +28,29 @@ export const Form = styled(FormikForm)`
     color: black;
   }
 `;
+export const ExperienciaConteinerStyled = styled.div`
+display: flex;
+  flex-direction: column;
+  width: 300px;
+`;
 
+export const RadioConteinerStyled = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  
+`;
+export const RadioLabelStyled = styled.label`
+  display: flex;
+  margin: 0.5rem 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  //width: 50%;
+  color: black;
+  font-weight: 600;
+`;
 
 
 export const LoginEmailStyled = styled(Link)`

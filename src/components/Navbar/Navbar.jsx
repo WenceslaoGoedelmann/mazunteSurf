@@ -1,36 +1,70 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import  "./navbarStyles.css"
+import "./navbarStyles.css";
 
 function NavarBasic() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="/" >
-        <img
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img
             src={
               "https://fontmeme.com/permalink/240202/fd25bfc9825d0ce48aeeaad208e135b6.png"
             }
             alt="Logo"
             className="logo"
           />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="/" className="link">Home</Nav.Link>
-            <Nav.Link href="/agenda" className="link">Agenda</Nav.Link>
-            <Nav.Link href="/login" className="link">Login</Nav.Link>
-            <Nav.Link href="/register" className="link">Register</Nav.Link>
-            <Nav.Link href="/verify" className="link">Verify</Nav.Link>
-            <Nav.Link href="/turno" className="link">Sacar Nuevo Turno</Nav.Link>
-            <Nav.Link href="/user" className="link">Mi Perfil</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">
+                Register
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/verify">
+                Verify
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/turno">
+                Sacar Nuevo Turno
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user">
+                Mi Perfil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">
+                Admin
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

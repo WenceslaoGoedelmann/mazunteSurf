@@ -34,8 +34,8 @@ const Verify = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Input type="text" name="code" placeholder="Codigo" />
-            <Input type="text" name="email" placeholder="Email" />
+            <Input type="text" name="code" placeholder="Codigo">Codigo</Input>
+            <Input type="text" name="email" placeholder="Email" >Email</Input>
 
             <Submit type="button">
               {isSubmitting ? <Loader /> : "Enviar"}

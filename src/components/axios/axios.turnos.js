@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { BASE_URL } from "../../utils/constants";
-import { fetchTurnoFail, fetchTurnoSuccess } from "../../redux/turno/turnoSlice";
+import { fetchAdminTurnoSuccess, fetchTurnoFail, fetchTurnoSuccess } from "../../redux/turno/turnoSlice";
 
 export const getHours = async (date) => {
   try {
@@ -47,15 +47,15 @@ export const getUserTurnos = async (token, dispatch) => {
   }
 };
 
-export const AdminGetTurnos = async (token, dispatch) => {
+export const AdminGetTurnos = async (token, data, dispatch) => {
   try {
-    const turnos = await axios.post(`${BASE_URL}/turno`, { 
+    const turnos = await axios.post(`${BASE_URL}/turno/adminturnos`,data, { 
       headers: {
         'x-token': token,
-      },/* como segundo argumento le paso el headers con el token */
+      },
     });
     if (turnos) {
-      dispatch(fetchTurnoSuccess(turnos.data.data));
+      dispatch(fetchAdminTurnoSuccess(turnos.data.data));
     }
   } catch (error) {
     console.error({ error });
@@ -63,4 +63,37 @@ export const AdminGetTurnos = async (token, dispatch) => {
   }
 };
 
+export const UpdateTurno = async (token, statusUpdate) => {
+
+  try {
+    const turnos = await axios.patch(`${BASE_URL}/turno/adminturnos`,statusUpdate, { 
+      headers: {
+        'x-token': token,
+      },
+    });
+    if (turnos) {
+     alert("Turno actualizado con exito")
+    }
+  } catch (error) {
+    console.error({ error });
+
+  }
+};
+
+export const deleteTurno = async (token, turno) => {
+
+  try {
+    const turnos = await axios.post(`${BASE_URL}/turno/deleteturno`,turno, { 
+      headers: {
+        'x-token': token,
+      },
+    });
+    if (turnos) {
+     alert("Turno eliminado con exito")
+    }
+  } catch (error) {
+    console.error({ error });
+
+  }
+};
 

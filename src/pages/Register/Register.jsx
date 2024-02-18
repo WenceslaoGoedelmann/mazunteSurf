@@ -4,10 +4,13 @@ import { Formik } from "formik";
 import Submit from "../../components/UI/Submit/Submit";
 
 import {
+  ExperienciaConteinerStyled,
   Form,
   LoginButtonGoogleStyled,
   LoginContainerStyled,
   LoginEmailStyled,
+  RadioConteinerStyled,
+  RadioLabelStyled,
 } from "./RegisterStyles";
 import { useDispatch } from "react-redux";
 
@@ -19,9 +22,11 @@ import Input from "../../components/UI/Input/Input";
 import { createUser } from "../../components/axios/axios.user";
 import { setCurrentUser } from "../../redux/user/userSlice";
 import { Field } from "formik";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   return (
     <LoginContainerStyled>
@@ -48,15 +53,19 @@ const Register = () => {
           actions.resetForm();
           //actions.preventDefault()
           if (user) {
+            alert("Usuario Creado Con Exito")
             dispatch(
               setCurrentUser({
                 ...user.usuario,
                 token: user.token,
               })
+              
             );
+            navigate("/verify")
           }
         }}
       >
+        {({ isSubmitting }) => (
         <Form>
           <Input type="text" name="nombre" placeholder="Nombre">
             Nombre
@@ -73,20 +82,23 @@ const Register = () => {
           <Input type="number" name="weight" placeholder="Peso">
             Peso
           </Input>
-          <div>
-            <label>
+          <ExperienciaConteinerStyled>
+            <RadioLabelStyled>Experiencia</RadioLabelStyled>
+            <RadioConteinerStyled>
+            <span>
               <Field type="radio" name="experience" value="Nada" />
-              Nada
-            </label>
-            <label>
+              Principiante
+            </span>
+            <span>
               <Field type="radio" name="experience" value="Media" />
-              Media
-            </label>
-            <label>
+              Intermedio
+            </span>
+            <span>
               <Field type="radio" name="experience" value="Mucha" />
-              Mucha
-            </label>
-          </div>
+              Avanzado
+            </span>
+            </RadioConteinerStyled>
+          </ExperienciaConteinerStyled>
           <Input type="text" name="email" placeholder="Email">
             Email
           </Input>
@@ -109,15 +121,18 @@ const Register = () => {
             >
               Repetir contraseña
             </Input>
-            <Input type="password" name="adminKey" placeholder="Contraseña De Administrador">
+            <Input type="password" name="adminKey" placeholder="Contraseña De Administrador" >
             Contraseña De Administrador
           </Input>
-
+          <Submit type="button">
+              {isSubmitting ? <Loader /> : "Registrate"}
+            </Submit>
           <LoginEmailStyled to="/login">
             <p>¿Ya tenes cuenta? Inicia sesión</p>
           </LoginEmailStyled>
-          <Submit type="button">Registrate</Submit>
+          
         </Form>
+         )}
       </Formik>
     </LoginContainerStyled>
   );

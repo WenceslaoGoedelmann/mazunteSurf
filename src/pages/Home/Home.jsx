@@ -1,17 +1,22 @@
 import React from 'react'
-import UncontrolledExample from '../../components/Carousels/Carousels'
+
 import AboutUs from '../../components/AboutUs/AboutUs'
 
 
 import { ContainerStyled } from './HomeStyles'
+import CarouselAge from '../../components/CarouselAge/CarouselAge'
+
+import CarouselHero from '../../components/CarouselHero/CarouselHero'
+import CarouselClass from '../../components/CarouselClass/CarouselClass'
 
 const Home = () => {
   return (
     <>
-    <UncontrolledExample/>
+    <CarouselHero/>
     <ContainerStyled>
     <AboutUs/>
-    
+    <CarouselAge/>
+    <CarouselClass/>
     </ContainerStyled>
     </>
   )

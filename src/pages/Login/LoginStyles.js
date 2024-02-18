@@ -1,19 +1,22 @@
-import styled from 'styled-components';
-import { Form as FormikForm } from 'formik';
+import styled from "styled-components";
+import { Form as FormikForm } from "formik";
 
 export const LoginContainerStyled = styled.div`
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-  background-color: grey;
-  h1{
+  background-image: url("https://res.cloudinary.com/dtsltqjuw/image/upload/v1707095596/MazunteSurf/beach-5043177_1280_nzdvvd.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  h1 {
     font-weight: 600;
     color: black;
-    //text-shadow: 2px 2px  black;
-    //font-family:  cursive;
   }
 `;
 
@@ -22,40 +25,19 @@ export const Form = styled(FormikForm)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
-  gap: 20px;
-  p{
+  padding: 0 1rem;
+  // width: 900px;
+  //gap: 10px;
+  p {
     color: black;
   }
 `;
 
 export const LoginPasswordStyled = styled.p`
   margin: 0;
+  padding: 1rem 0;
 
   color: black;
-
-  :hover {
-    text-decoration: underline;
-    transition: all 0.25s ease-out;
-  }
-`;
-
-export const LoginButtonGoogleStyled = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 1rem 1.5rem;
-  outline: none;
-  border: none;
-  border-radius: 1rem;
-  background: var(--gray-bg);
-  color: white;
-  cursor: pointer;
-`;
-
-export const LoginEmailStyled = styled.p`
-  color: var(--orange);
 
   :hover {
     text-decoration: underline;
