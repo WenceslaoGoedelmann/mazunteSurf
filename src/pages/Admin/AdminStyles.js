@@ -20,6 +20,9 @@ export const SearchContainerStyled = styled.div`
   gap: 15px;
 
   padding: 20px;
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 `;
 export const InputSelectStyled = styled.select`
   background-color: white;

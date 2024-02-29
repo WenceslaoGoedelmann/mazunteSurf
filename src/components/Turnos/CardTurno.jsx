@@ -37,7 +37,7 @@ const CardTurno = ({ date, hour, status, _id }) => {
     }
   };
   return (
-    <div className="card col-lg-6  ">
+    <div className="card col-sm-10 col-md-8 col-lg-5   col-10  ">
       <div className="card-header d-flex gap-5">
         <div>Turno: #{_id.slice(16)}</div>
         <div className="ms-auto">

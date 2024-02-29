@@ -103,6 +103,7 @@ const User = () => {
         <h3 className="text-center py-4">Mis Turnos</h3>
 
         <div className="container  pb-5">
+       
           {loading ? (
             <LoaderCard/>
           ) : (

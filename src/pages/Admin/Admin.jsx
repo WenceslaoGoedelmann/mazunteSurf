@@ -118,11 +118,11 @@ const Admin = () => {
         >
           <option>Seleccionar</option>
           <option value="todos">Todos Los Turnos</option>
-          <option value="dia">buscar por dia</option>
-          <option value="nombre">buscar por nombre</option>
-          <option value="apellido">buscar por apellido</option>
-          <option value="email">buscar por email</option>
-          <option value="estado">buscar por estado</option>
+          <option value="dia">Buscar por dia</option>
+          <option value="nombre">Buscar por nombre</option>
+          <option value="apellido">Buscar por apellido</option>
+          <option value="email">Buscar por email</option>
+          <option value="estado">Buscar por estado</option>
         </InputSelectStyled>
 
         {option === "todos" ? (

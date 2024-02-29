@@ -1,9 +1,10 @@
 import React from 'react'
+import { ContainerStyled } from '../../Turnos/TurnosStyles'
 
 const LoaderCard = () => {
   return (
-    <div className="container d-flex  flex-column align-items-center">
-              <div className="card  col-lg-6  ">
+    <ContainerStyled>
+              <div className="card  col-sm-10  col-md-8 col-lg-5 col-10  ">
                 <div className="card-header d-flex gap-5 placeholder-glow">
                   <span className="placeholder col-6"></span>
                 </div>
@@ -21,8 +22,13 @@ const LoaderCard = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+              </ContainerStyled>      
   )
 }
 
 export default LoaderCard
+
+
+
+{/* <div className="container d-flex  flex-column align-items-center">
+ */}
