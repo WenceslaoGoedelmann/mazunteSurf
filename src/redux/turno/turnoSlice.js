@@ -6,6 +6,7 @@ const initialState = {
   adminTurnos:null,
   loading: false,
   error: null,
+  hours:null,
 };
 
 const turnoSlice = createSlice({
@@ -30,9 +31,17 @@ const turnoSlice = createSlice({
     fetchAdminTurnoSuccess: (state, action) => {
       return {
         ...state,
-       
-        
+        loading: false,
+        error: null,
         adminTurnos: [...action.payload],
+      };
+    },
+    fetchHoursSuccess: (state, action) => {
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        hours: [...action.payload],
       };
     },
     fetchTurnoFail: (state, action) => {
@@ -70,65 +79,9 @@ export const {
     fetchTurnoStart,
     clearError,
     clearTurnos,
-    fetchAdminTurnoSuccess
+    fetchAdminTurnoSuccess,
+    fetchHoursSuccess
 } = turnoSlice.actions;
 
 export default turnoSlice.reducer;
 
-/*   const initialState = {
-    turnos: [],
-    diahora:{},
-    experience:{},
-    ID: 0,
-    
-    };
-
-
-  const turnoSlice = createSlice({
-    name: 'turnos',
-    initialState,
-    reducers: {
-        saveTurno: (state, action) => {
-            return {
-                ...state,
-                turnos: [...state.turnos, action.payload]
-            }
-        },
-        selectDate: (state, action) => {
-            return {
-                ...state,
-                diahora: action.payload
-            }
-        },
-        selectExperience: (state, action) => {
-            return {
-                ...state,
-                experience: action.payload
-            }
-        },
-        clearAllTurnos: (state) => {
-            return {
-                ...state,
-                turnos: [],
-                ID:0,
-            }
-        },
-        increaseID: (state) => {
-            
-            return {
-                ...state,
-                ID: newID(state.ID)
-            }
-        },
-        removeTurno: (state, action) => {
-            return {
-                ...state,
-                turnos: removeItemTurno(state.turnos, action.payload)
-            }
-        },
-        
-
-    },
-  });
-
-  export const {saveTurno, selectDate, selectExperience, clearAllTurnos, increaseID, removeTurno} = turnoSlice.actions */

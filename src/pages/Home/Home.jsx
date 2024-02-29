@@ -8,6 +8,8 @@ import CarouselAge from '../../components/CarouselAge/CarouselAge'
 
 import CarouselHero from '../../components/CarouselHero/CarouselHero'
 import CarouselClass from '../../components/CarouselClass/CarouselClass'
+import Contacto from '../../components/Contacto/Contacto'
+
 
 const Home = () => {
   return (
@@ -17,6 +19,8 @@ const Home = () => {
     <AboutUs/>
     <CarouselAge/>
     <CarouselClass/>
+    <Contacto/>
+
     </ContainerStyled>
     </>
   )

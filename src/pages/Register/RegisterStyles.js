@@ -21,12 +21,22 @@ export const Form = styled(FormikForm)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 700px;
   padding: 0 2rem;
   gap: 20px;
-  width: 90%;
+ 
   p{
     color: black;
   }
+`;
+export const InputsConteinerStyled = styled.div`
+display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  gap: 20px;
 `;
 export const ExperienciaConteinerStyled = styled.div`
 display: flex;

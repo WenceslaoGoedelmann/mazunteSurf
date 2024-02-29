@@ -1,10 +1,16 @@
+import { setCurrentUser } from "../../redux/user/userSlice";
 import "./navbarStyles.css";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavarBasic() {
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-5">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
           <img
             src={
               "https://fontmeme.com/permalink/240202/fd25bfc9825d0ce48aeeaad208e135b6.png"
@@ -14,7 +20,7 @@ function NavarBasic() {
           />
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -22,44 +28,58 @@ function NavarBasic() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">
-                Login
+            <li className="nav-item">
+              <a className="nav-link" href="/login">
+                {currentUser ? "" : "Iniciar sesión"}
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/register">
-                Register
+            <li className="nav-item">
+              <a className="nav-link" href="/register">
+                {currentUser ? "" : "Registrarse"}
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/verify">
-                Verify
+            <li className="nav-item">
+              <a className="nav-link" href="/turno">
+                Nuevo Turno
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/turno">
-                Sacar Nuevo Turno
+            <li className="nav-item">
+              <a className="nav-link" href="/user">
+                {currentUser ? "Mi Perfil" : ""}
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/user">
-                Mi Perfil
+            <li className="nav-item">
+              <a className="nav-link" href="/admin">
+                {currentUser?.rol === "50yun4admin" ? "Admin" : ""}
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">
-                Admin
-              </a>
+            <li className="nav-item">
+              {currentUser ? (
+                <button
+                  type="button"
+                  className="nav-link"
+                  onClick={() => {
+                    let confirmar = window.confirm("Quiere cerrar sesion?");
+                    if (confirmar) {
+                      navigate("/");
+                      dispatch(setCurrentUser());
+                    }else return
+                  }}
+                >
+                  Cerrar Sesion
+                </button>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
         </div>
