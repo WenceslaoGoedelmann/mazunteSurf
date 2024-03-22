@@ -7,10 +7,10 @@ import { Navigate } from 'react-router-dom'
 const ProtectedRoute = ({ children, redirectTo}) => {
     const { currentUser } = useSelector(state => state.user)
 
-  return currentUser ? ( /* si existe un usuario logueado */
-        children /* accedo a la ruta que deseo ir */
+  return currentUser ? ( 
+        children 
     ): (
-        <Navigate to={redirectTo} state={{ redirectedFromCheckout: true }}/> /* si no redirijo a otra ruta  y le paso como prop la pagina a la que queria ir para que luego que se loguee lo redirija al checkout*/
+        <Navigate to={redirectTo} state={{ redirectedFromCheckout: true }}/> 
     )
 }
 

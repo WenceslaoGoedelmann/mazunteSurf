@@ -6,10 +6,10 @@ const AdminProtectedRoute = ({ children, redirectTo}) => {
     const { rol } = useSelector(state => state.user.currentUser)
 
    
-  return rol === "50yun4admin" ? ( /* si existe un usuario logueado */
-        children /* accedo a la ruta que deseo ir */
+  return rol === "50yun4admin" ? ( 
+        children 
     ): (
-        <Navigate to={redirectTo} /> /* si no redirijo a otra ruta  y le paso como prop la pagina a la que queria ir para que luego que se loguee lo redirija al checkout*/
+        <Navigate to={redirectTo} /> 
     )
 }
 

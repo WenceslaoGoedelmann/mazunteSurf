@@ -29,6 +29,3 @@ const LoaderCard = () => {
 export default LoaderCard
 
 
-
-{/* <div className="container d-flex  flex-column align-items-center">
- */}

@@ -27,10 +27,10 @@ export const createTurno = async (turno, currentUser) => {
     const response = await axios.post(`${BASE_URL}/turno`, turno, {
       headers: {
         'x-token': currentUser.token,
-      }, /*  como segundo argumento le paso el body con la orden, como tercer argumento le paso el headers con el token */
+      }, 
     });
     if (response) {
-      alert("Turno creado con exito"); /* luego de crear la nueva orden, llamo a la funcion anterior para que ya me traiga esta ultima orden y otras mas si las tuviese */
+      alert("Turno creado con exito"); 
     }
   } catch (error) {
     console.error({ error });

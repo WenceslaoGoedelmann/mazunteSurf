@@ -25,10 +25,10 @@ export const createUser = async (nombre, surname, age, height,weight,experience,
             }, 
           }) 
         console.log(data)
-        return data /* ejemplo con data desextruturada */
+        return data 
     } catch (error) {
         console.log({ createUserError: error })
-        return alert(error.response.data.errors[0].msg) /* de esta forma muestro el primer mensaje de error que encuentro */
+        return alert(error.response.data.errors[0].msg) 
     }
 }
 
@@ -39,7 +39,7 @@ export const loginUser = async (email, password) => {
             email,
             password
         })
-        return response.data /* ejemplo con data estructurada */
+        return response.data 
     } catch (error) {
         console.log({ loginUserError: error })
         return alert(error.response.data.errors[0].msg)

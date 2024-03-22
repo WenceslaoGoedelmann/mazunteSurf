@@ -3,7 +3,7 @@ import { ContainerStyled } from "./TurnosStyles";
 
 import { useDispatch, useSelector } from "react-redux";
 import CardTurno from "./CardTurno";
-import Submit from "../UI/Submit/Submit";
+
 
 
 const Turnos = () => {
