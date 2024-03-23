@@ -6,7 +6,7 @@ import w3g from "./logo2.png";
 const Footer = () => {
   return (
     <FooterContainerStyled>
-      <p>Copyright © Todos los derechos reservados. Simpsonzzapi</p>
+      <p>Copyright © Todos los derechos reservados. Mazunte Surf</p>
       
       <a href='https://wenceslao-goedelmann.vercel.app/'>
       Pagina realizada por  
