@@ -1,0 +1,12 @@
+.inputDateStyled {
+  background-color: beige;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  height: 45px;
+  padding: 0.5rem 1rem;
+  color: black;
+  width: 140;
+  margin-top: 1rem;
+  
+}

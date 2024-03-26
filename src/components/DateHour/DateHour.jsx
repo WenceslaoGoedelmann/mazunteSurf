@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import "./dateStyle.css";
+
 import {
   BtnContainerStyled,
   DateHourContainerStyled,
@@ -11,6 +13,18 @@ import {
 import { ButtonSubmitStyled } from "../UI/Submit/SubmitStyles";
 import { createTurno, getHours } from "../axios/axios.turnos";
 import Loader from "../UI/Loader/Loader";
+import DatePicker, {registerLocale} from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
+import {addDays, isWeekend} from "date-fns";
+import es from 'date-fns/locale/es';
+registerLocale("es", es);
+
+
+
+
+
 
 const DateHour = () => {
   const dispatch = useDispatch();
@@ -18,16 +32,36 @@ const DateHour = () => {
   const { hours, loading } = useSelector((state) => state.turnos);
   const [dia, setDate] = useState("");
   const [hour, setHour] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
 
-  const handleChange = async (e) => {
-    const date = e.target.value
-      .split("-")
-      .reverse()
-      .toString()
-      .replaceAll(",", "/");
-    setDate(date);
-    await getHours(date,dispatch)
+  const handleChange = async (date) => {
+    setStartDate(date)
+    
+    var anio = date.getFullYear();
+    var dia = date.getDate();
+    var _mes = date.getMonth();
+    _mes = _mes +1
+    if (_mes < 10)
+    { var mes = "0" + _mes;}
+    else
+    { var mes = _mes.toString;}
+    var diaSelec = `${dia}/${mes}/${anio}`
+    console.log(diaSelec)
+    setDate(diaSelec);
+    await getHours(diaSelec,dispatch)
   };
+
+  const isWeekendDay = (date) => {
+    return isWeekend(date)
+  }
+  
+
+  const filterWeekend = (date) => {
+    return !isWeekendDay(date) 
+  }
+ 
+
+
 
   let horas = [];
 
@@ -50,13 +84,23 @@ const DateHour = () => {
        await getHours(dia,dispatch)
   };
 
+  const minDate = new Date()
+
+
+
+
   return (
     <DateHourContainerStyled>
       <InputContainerStyled>
-        <InputDateStyled
-          name="date"
-          type="date"
-          onChange={(e) => handleChange(e)}
+
+        <DatePicker 
+        selected={startDate} 
+        onChange={handleChange}
+        minDate={minDate}
+        filterDate={filterWeekend}
+        dateFormat={"dd-MM-yyyy"}
+        locale="es"
+        className="inputDateStyled"
         />
         {loading?
         <Loader  styles={{ height: '50px', width: '50px', border: '5px dashed black' }}/>:
@@ -116,3 +160,20 @@ const DateHour = () => {
 
 export default DateHour;
 
+
+/* const handleChange = async (e) => {
+  const date = e.target.value
+    .split("-")
+    .reverse()
+    .toString()
+    .replaceAll(",", "/");
+  setDate(date);
+  await getHours(date,dispatch)
+}; */
+
+
+{/* <InputDateStyled
+name="date"
+type="date"
+onChange={(e) => handleChange(e)}
+/> */}
