@@ -21,11 +21,6 @@ import {addDays, isWeekend} from "date-fns";
 import es from 'date-fns/locale/es';
 registerLocale("es", es);
 
-
-
-
-
-
 const DateHour = () => {
   const dispatch = useDispatch();
   const {currentUser} = useSelector((state) => state.user);
